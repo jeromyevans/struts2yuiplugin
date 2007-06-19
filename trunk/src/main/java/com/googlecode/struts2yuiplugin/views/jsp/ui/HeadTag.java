@@ -12,16 +12,18 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class HeadTag extends AbstractUITag {
     private String datepicker;
 
+    @Override
     public Component getBean(ValueStack stack, HttpServletRequest req,
         HttpServletResponse res) {
         return new Head(stack, req, res);
     }
-    
+
+    @Override
     protected void populateParams() {
         super.populateParams();
-        
-        Head head = (Head) component;
-        head.setDatepicker(datepicker);
+
+        Head head = (Head) this.component;
+        head.setDatepicker(this.datepicker);
     }
 
     public void setDatepicker(String datepicker) {

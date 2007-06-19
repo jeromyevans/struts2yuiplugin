@@ -5,9 +5,9 @@
     <groupId>com.googlecode.struts2yuiplugin</groupId>
     <artifactId>struts2yuiplugin</artifactId>
     <packaging>jar</packaging>
-    <version>0.1</version>
+    <version>0.1-ALPHA</version>
     <name>struts2yuiplugin</name>
-    <url>http://maven.apache.org</url>
+    <url>http://code.google.com/p/struts2yuiplugin/</url>
 
     <build>
         <plugins>
@@ -23,11 +23,11 @@
                 <artifactId>maven-apt-plugin</artifactId>
                 <configuration>
                     <A>
-                        uri=/struts-dp-tags,tlibVersion=2.2.3,jspVersion=1.2,shortName=dt,displayName="Struts
-                        DatePicker Tags",
-                        outFile=${basedir}/target/classes/META-INF/struts-dp-tags.tld,
-                        description="Struts DatePicker based on YUI.",
-                        outTemplatesDir=${basedir}/target
+                        uri=/struts-yui-tags,tlibVersion=2.2.3,jspVersion=1.2,shortName=yui,displayName="Struts
+                        YUI Tags",
+                        outFile=${basedir}/target/classes/META-INF/struts-yui-tags.tld,
+                        description="Struts tags based on YUI.",
+                        outTemplatesDir=${basedir}/src/main/gen
                     </A>
                     <resourceTargetPath>target</resourceTargetPath>
                     <fork>false</fork>
@@ -71,6 +71,12 @@
             <groupId>org.apache.struts</groupId>
             <artifactId>struts-annotations</artifactId>
             <version>1.0.2-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.4</version>
             <optional>true</optional>
         </dependency>
     </dependencies>

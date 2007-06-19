@@ -11,13 +11,14 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 public class DatePickerModel extends TagModel {
 
-    public DatePickerModel(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
+    public DatePickerModel(ValueStack stack, HttpServletRequest req,
+        HttpServletResponse res) {
         super(stack, req, res);
     }
 
     @Override
     protected Component getBean() {
-        return new DatePicker(stack, req, res);
+        return new DatePicker(this.stack, this.req, this.res);
     }
 
 }

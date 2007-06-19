@@ -36,55 +36,57 @@ public class DatePicker extends UIBean {
     protected String iconPath;
     protected String iconCssClass;
     protected String formatFunction;
-    
+
     public DatePicker(ValueStack stack, HttpServletRequest request,
         HttpServletResponse response) {
         super(stack, request, response);
     }
 
+    @Override
     public void evaluateParams() {
         super.evaluateParams();
 
-        if (value != null)
-            addParameter("value", format(findValue(value)));
-        if (startDate != null)
-            addParameter("startDate", format(findValue(startDate)));
-        if (endDate != null)
-            addParameter("endDate", format(findValue(endDate)));
-        if (mode != null)
-            addParameter("mode", findString(mode));
+        if (this.value != null)
+            this.addParameter("value", this.format(this.findValue(this.value)));
+        if (this.startDate != null)
+            this.addParameter("startDate", this.format(this.findValue(this.startDate)));
+        if (this.endDate != null)
+            this.addParameter("endDate", this.format(this.findValue(this.endDate)));
+        if (this.mode != null)
+            this.addParameter("mode", this.findString(this.mode));
         else
-            addParameter("mode", "input");
-        if (iconCssClass != null)
-            addParameter("iconCssClass", findString(iconCssClass));
-        if (iconPath != null)
-            addParameter("iconPath", findString(iconPath));
-        if (autoClose != null)
-            addParameter("autoClose", findValue(autoClose, Boolean.class));
-        if (formatFunction != null)
-            addParameter("formatFunction", findString(formatFunction));
+            this.addParameter("mode", "input");
+        if (this.iconCssClass != null)
+            this.addParameter("iconCssClass", this.findString(this.iconCssClass));
+        if (this.iconPath != null)
+            this.addParameter("iconPath", this.findString(this.iconPath));
+        if (this.autoClose != null)
+            this.addParameter("autoClose", this.findValue(this.autoClose, Boolean.class));
+        if (this.formatFunction != null)
+            this.addParameter("formatFunction", this.findString(this.formatFunction));
 
         String nameValue = null;
 
-        if (parameters.containsKey("value")) {
-            nameValue = (String) parameters.get("value");
-            addParameter("nameValue", nameValue);
-        } else if (name != null) {
-            nameValue = format(findValue(name));
-            addParameter("nameValue", nameValue);
+        if (this.parameters.containsKey("value")) {
+            nameValue = (String) this.parameters.get("value");
+            this.addParameter("nameValue", nameValue);
+        } else if (this.name != null) {
+            nameValue = this.format(this.findValue(this.name));
+            this.addParameter("nameValue", nameValue);
         }
 
         if (nameValue != null) {
             try {
                 Date dateValue = DATE_FORMAT.parse(nameValue);
-                addParameter("pagedate", PAGE_DATE_FORMAT.format(dateValue));
-                addParameter("rfcValue", RFC3339_FORMAT.format(dateValue));
+                this.addParameter("pagedate", PAGE_DATE_FORMAT.format(dateValue));
+                this.addParameter("rfcValue", RFC3339_FORMAT.format(dateValue));
             } catch (ParseException e) {
                 LOG.error("Unable to build page date from specified value");
             }
         }
     }
 
+    @Override
     protected String getDefaultTemplate() {
         return TEMPLATE;
     }
@@ -92,11 +94,11 @@ public class DatePicker extends UIBean {
     private String format(Object obj) {
         if (obj == null)
             return null;
-        if (obj instanceof Date) {
+        if (obj instanceof Date)
             return DATE_FORMAT.format((Date) obj);
-        } else if (obj instanceof Calendar) {
+        else if (obj instanceof Calendar)
             return DATE_FORMAT.format(((Calendar) obj).getTime());
-        } else {
+        else {
             // try to parse a date
             String dateStr = obj.toString();
             if (dateStr.equalsIgnoreCase("today"))
@@ -106,11 +108,10 @@ public class DatePicker extends UIBean {
             //formats used to parse the date
             List<DateFormat> formats = new ArrayList<DateFormat>();
             formats.add(RFC3339_FORMAT);
-            formats.add(SimpleDateFormat.getTimeInstance(DateFormat.SHORT));
-            formats.add(SimpleDateFormat.getDateInstance(DateFormat.SHORT));
-            formats.add(SimpleDateFormat.getDateInstance(DateFormat.MEDIUM));
-            formats.add(SimpleDateFormat.getDateInstance(DateFormat.FULL));
-            formats.add(SimpleDateFormat.getDateInstance(DateFormat.LONG));
+            formats.add(DateFormat.getDateInstance(DateFormat.SHORT));
+            formats.add(DateFormat.getDateInstance(DateFormat.MEDIUM));
+            formats.add(DateFormat.getDateInstance(DateFormat.FULL));
+            formats.add(DateFormat.getDateInstance(DateFormat.LONG));
 
             for (DateFormat format : formats) {
                 try {
@@ -128,7 +129,7 @@ public class DatePicker extends UIBean {
             return dateStr;
         }
     }
-    
+
     @StrutsTagAttribute(description = "Sets how the datepicker is to be rendered, should be one of 'input', 'static', 'label'", defaultValue = "input")
     public void setMode(String mode) {
         this.mode = mode;
@@ -240,7 +241,7 @@ public class DatePicker extends UIBean {
         this.startDate = startDate;
     }
 
-    @StrutsTagAttribute(description = "Hide datepicker when a date is selected. Applies only when 'mode' is 'input' or 'label'", type = "Boolean", defaultValue="true")
+    @StrutsTagAttribute(description = "Hide datepicker when a date is selected. Applies only when 'mode' is 'input' or 'label'", type = "Boolean", defaultValue = "true")
     public void setAutoClose(String autoClose) {
         this.autoClose = autoClose;
     }
@@ -255,9 +256,9 @@ public class DatePicker extends UIBean {
         this.iconCssClass = iconCssClass;
     }
 
-    @StrutsTagAttribute(description = "Function used to format the selected value. The value returned by this function will be displayed" +
-    		" on the input field. When the page loads an String will be passed to this function with the value specified on the 'value' attribute." +
-    		"When the user selects a value using the datepicker a JavaScript object of type Date will be passed. Applies only when 'mode' is 'input' or 'label'")
+    @StrutsTagAttribute(description = "Function used to format the selected value. The value returned by this function will be displayed"
+        + " on the input field. When the page loads an String will be passed to this function with the value specified on the 'value' attribute."
+        + "When the user selects a value using the datepicker a JavaScript object of type Date will be passed. Applies only when 'mode' is 'input' or 'label'")
     public void setFormatFunction(String formatFunction) {
         this.formatFunction = formatFunction;
     }

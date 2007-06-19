@@ -5,23 +5,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
-public class DatePickerModels {
+public class YUIModels {
     private ValueStack stack;
     private HttpServletRequest req;
     private HttpServletResponse res;
     private DatePickerModel datepicker;
-    
-    public DatePickerModels(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
+
+    public YUIModels(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
         this.stack = stack;
         this.req = req;
         this.res = res;
     }
-    
-    public DatePickerModel getBind() {
-        if (datepicker == null) {
-            datepicker = new DatePickerModel(stack, req, res);
+
+    public DatePickerModel getDatepicker() {
+        if (this.datepicker == null) {
+            this.datepicker = new DatePickerModel(this.stack, this.req, this.res);
         }
 
-        return datepicker;
+        return this.datepicker;
     }
 }
