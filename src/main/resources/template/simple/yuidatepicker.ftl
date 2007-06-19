@@ -31,6 +31,8 @@
 <div id="${parameters.id}Container"
 <#if parameters.mode == 'input' || parameters.mode == 'label'>
 style="display:none"
+<#else>
+style="position:relative"
 </#if>
 ></div>
 <script type="text/javascript">
@@ -52,7 +54,7 @@ style="display:none"
        <#if parameters.rfcValue?if_exists != "">
            YAHOO.util.Dom.get("${parameters.id}Input").value = "${parameters.rfcValue}";
        </#if>
-       <#if parameters.nameValue?if_exists != "">
+       <#if parameters.nameValue?if_exists != "" && (parameters.mode == 'input' || parameters.mode == 'label')>
            var visibleInput = YAHOO.util.Dom.get("${parameters.id}InputVisible");
            <#if parameters.formatFunction?if_exists != "">
                showDateValue(visibleInput, window["${parameters.formatFunction}"]("${parameters.nameValue}"));

@@ -20,14 +20,17 @@ public class Head extends UIBean {
         super(stack, request, response);
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public void evaluateParams() {
         super.evaluateParams();
 
-        if (datepicker != null)
-            parameters.put("datepicker", findValue(datepicker, Boolean.class));
+        if (this.datepicker != null)
+            this.parameters.put("datepicker", this.findValue(this.datepicker,
+                Boolean.class));
     }
 
+    @Override
     protected String getDefaultTemplate() {
         return TEMPLATE;
     }

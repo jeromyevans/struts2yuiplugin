@@ -17,23 +17,25 @@ public class DatePickerTag extends AbstractUITag {
     protected String iconCssClass;
     protected String formatFunction;
     protected String mode;
-    
+
+    @Override
     public Component getBean(ValueStack stack, HttpServletRequest req,
         HttpServletResponse res) {
         return new DatePicker(stack, req, res);
     }
 
+    @Override
     protected void populateParams() {
         super.populateParams();
 
-        DatePicker datePicker = (DatePicker) component;
-        datePicker.setStartDate(startDate);
-        datePicker.setEndDate(endDate);
-        datePicker.setAutoClose(autoClose);
-        datePicker.setIconCssClass(iconCssClass);
-        datePicker.setIconPath(iconPath);
-        datePicker.setFormatFunction(formatFunction);
-        datePicker.setMode(mode);
+        DatePicker datePicker = (DatePicker) this.component;
+        datePicker.setStartDate(this.startDate);
+        datePicker.setEndDate(this.endDate);
+        datePicker.setAutoClose(this.autoClose);
+        datePicker.setIconCssClass(this.iconCssClass);
+        datePicker.setIconPath(this.iconPath);
+        datePicker.setFormatFunction(this.formatFunction);
+        datePicker.setMode(this.mode);
     }
 
     public void setStartDate(String startDate) {
