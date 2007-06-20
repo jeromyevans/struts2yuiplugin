@@ -57,9 +57,9 @@ style="position:relative"
        <#if parameters.nameValue?if_exists != "" && (parameters.mode == 'input' || parameters.mode == 'label')>
            var visibleInput = YAHOO.util.Dom.get("${parameters.id}InputVisible");
            <#if parameters.formatFunction?if_exists != "">
-               showDateValue(visibleInput, window["${parameters.formatFunction}"]("${parameters.nameValue}"));
+               YAHOO.s2yui.showDateValue(visibleInput, window["${parameters.formatFunction}"]("${parameters.nameValue}"));
            <#else>
-               showDateValue(visibleInput, "${parameters.nameValue}");    
+               YAHOO.s2yui.showDateValue(visibleInput, "${parameters.nameValue}");    
            </#if>
        </#if>
        <#if parameters.mode == 'input' || parameters.mode == 'label'>
@@ -76,29 +76,41 @@ style="position:relative"
        <#if parameters.mode == 'input' || parameters.mode == 'label'>
            YAHOO.datepickers.${parameters.id}.cfg.setProperty("close", true, false); 
            YAHOO.util.Event.addListener("${parameters.id}InputVisible", "change", function() {
-              updateCal(YAHOO.datepickers.${parameters.id}, "${parameters.id}InputVisible");
+              YAHOO.s2yui.updateCal(YAHOO.datepickers.${parameters.id}, "${parameters.id}InputVisible");
            }, YAHOO.datepickers.${parameters.id}, true);
+       </#if>
+       
+       <#if parameters.language != "en">
+       YAHOO.s2yui.loadLanguageStrings(YAHOO.datepickers.${parameters.id}, '${parameters.language}');
        </#if>
        
        YAHOO.datepickers.${parameters.id}.render();
        
        YAHOO.datepickers.${parameters.id}.selectEvent.subscribe(function(type,args,obj) {
          var input = YAHOO.util.Dom.get("${parameters.id}Input");
+         var visibleInput = YAHOO.util.Dom.get("${parameters.id}InputVisible");
          var dates = args[0]; 
          var date = dates[0];
          var year = date[0], month = date[1], day = date[2];
          
+         if(!YAHOO.lang.isNumber(year)
+            || !YAHOO.lang.isNumber(month)
+            || !YAHOO.lang.isNumber(day)) {
+            //yahoo couldn't parse what the user typed in
+            input.value = visibleInput.value;
+            return;
+         }
+         
          var dateObj = this._toDate(date);
-         input.value = toRFC3339(dateObj);
+         input.value = YAHOO.s2yui.toRFC3339(dateObj);
          
          <#if parameters.mode == 'input' || parameters.mode == 'label'>
-            var visibleInput = YAHOO.util.Dom.get("${parameters.id}InputVisible");
             <#if parameters.formatFunction?if_exists != "">
                 var fromattedDate = window["${parameters.formatFunction}"](dateObj);
             <#else>
                 var fromattedDate = month + "/" + day + "/" + year;    
             </#if>
-            showDateValue(visibleInput, fromattedDate);
+            YAHOO.s2yui.showDateValue(visibleInput, fromattedDate);
          </#if>   
          <#if parameters.autoClose?default(true)>
             this.hide();
