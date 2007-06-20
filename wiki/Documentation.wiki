@@ -1,2 +1,0 @@
-#labels Featured
-See [http://cwiki.apache.org/confluence/display/S2PLUGINS/YUI+Plugin Struts 2 Plugin registry]
