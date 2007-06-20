@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.StrutsStatics;
 import org.apache.struts2.components.UIBean;
 import org.apache.struts2.views.annotations.StrutsTag;
 import org.apache.struts2.views.annotations.StrutsTagAttribute;
 import org.apache.struts2.views.annotations.StrutsTagSkipInheritance;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.util.ValueStack;
 
 @StrutsTag(name = "datepicker", tldTagClass = "com.googlecode.struts2yuiplugin.views.jsp.ui.DatePickerTag", description = "Renders YUI datepicker")
@@ -36,6 +38,7 @@ public class DatePicker extends UIBean {
     protected String iconPath;
     protected String iconCssClass;
     protected String formatFunction;
+    protected String language;
 
     public DatePicker(ValueStack stack, HttpServletRequest request,
         HttpServletResponse response) {
@@ -83,6 +86,15 @@ public class DatePicker extends UIBean {
             } catch (ParseException e) {
                 LOG.error("Unable to build page date from specified value");
             }
+        }
+
+        if (language != null) {
+            addParameter("language", findString(language));
+        } else {
+            ActionContext context = ActionContext.getContext();
+            HttpServletRequest request = (HttpServletRequest) context
+                .get(StrutsStatics.HTTP_REQUEST);
+            addParameter("language", request.getLocale().getLanguage());
         }
     }
 
@@ -261,5 +273,11 @@ public class DatePicker extends UIBean {
         + "When the user selects a value using the datepicker a JavaScript object of type Date will be passed. Applies only when 'mode' is 'input' or 'label'")
     public void setFormatFunction(String formatFunction) {
         this.formatFunction = formatFunction;
+    }
+
+    @StrutsTagAttribute(description = "Language name(2 lowercase characters) to be used on the datepicker. This language must also be specified on the attribute"
+        + " 'languages' in the head tag.")
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
