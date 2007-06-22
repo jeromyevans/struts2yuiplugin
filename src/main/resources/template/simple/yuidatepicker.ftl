@@ -76,7 +76,7 @@ style="position:relative"
        <#if parameters.mode == 'input' || parameters.mode == 'label'>
            YAHOO.datepickers.${parameters.id}.cfg.setProperty("close", true, false); 
            YAHOO.util.Event.addListener("${parameters.id}InputVisible", "change", function() {
-              YAHOO.s2yui.updateCal(YAHOO.datepickers.${parameters.id}, "${parameters.id}InputVisible");
+              YAHOO.util.Dom.get("${parameters.id}Input").value = YAHOO.util.Dom.get("${parameters.id}InputVisible").value;
            }, YAHOO.datepickers.${parameters.id}, true);
        </#if>
        

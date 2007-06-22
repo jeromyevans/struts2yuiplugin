@@ -36,19 +36,6 @@ YAHOO.s2yui.padString = function (str, len, c, dir) {
   return out;  //  string
 };
 
-YAHOO.s2yui.updateCal = function(cal,id) {
-  var txtDate = document.getElementById(id);
-  
-  if (txtDate.value != "") {
-    cal.select(txtDate.value);
-    
-    var firstDate = cal.getSelectedDates()[0];
-    cal.cfg.setProperty("pagedate", (firstDate.getMonth()+1) + "/" + firstDate.getFullYear());
-    
-    cal.render();
-  }
-};
-
 YAHOO.s2yui.showDateValue = function(target, value) {
   if(target.nodeName.toLowerCase() == "input") {
     target.value = value;
