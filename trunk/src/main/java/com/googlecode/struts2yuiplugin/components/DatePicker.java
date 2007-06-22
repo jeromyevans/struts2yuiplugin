@@ -29,6 +29,8 @@ public class DatePicker extends UIBean {
     final protected static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
     final protected static DateFormat PAGE_DATE_FORMAT = new SimpleDateFormat("MM/yyyy");
     final private static SimpleDateFormat RFC3339_FORMAT = new SimpleDateFormat(
+        "yyyy-MM-dd'T'HH:mm:ss");
+    final private static SimpleDateFormat RFC3339_DATE_FORMAT = new SimpleDateFormat(
         "yyyy-MM-dd");
 
     protected String startDate;
@@ -119,6 +121,7 @@ public class DatePicker extends UIBean {
             Date date = null;
             //formats used to parse the date
             List<DateFormat> formats = new ArrayList<DateFormat>();
+            formats.add(RFC3339_DATE_FORMAT);
             formats.add(RFC3339_FORMAT);
             formats.add(DateFormat.getDateInstance(DateFormat.SHORT));
             formats.add(DateFormat.getDateInstance(DateFormat.MEDIUM));
