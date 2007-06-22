@@ -18,7 +18,7 @@ public class DatePickerTag extends AbstractUITag {
     protected String formatFunction;
     protected String mode;
     protected String language;
-    
+
     @Override
     public Component getBean(ValueStack stack, HttpServletRequest req,
         HttpServletResponse res) {
@@ -37,7 +37,7 @@ public class DatePickerTag extends AbstractUITag {
         datePicker.setIconPath(this.iconPath);
         datePicker.setFormatFunction(this.formatFunction);
         datePicker.setMode(this.mode);
-        datePicker.setLanguage(language);
+        datePicker.setLanguage(this.language);
     }
 
     public void setStartDate(String startDate) {

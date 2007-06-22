@@ -90,13 +90,13 @@ public class DatePicker extends UIBean {
             }
         }
 
-        if (language != null) {
-            addParameter("language", findString(language));
+        if (this.language != null) {
+            this.addParameter("language", this.findString(this.language));
         } else {
             ActionContext context = ActionContext.getContext();
             HttpServletRequest request = (HttpServletRequest) context
                 .get(StrutsStatics.HTTP_REQUEST);
-            addParameter("language", request.getLocale().getLanguage());
+            this.addParameter("language", request.getLocale().getLanguage());
         }
     }
 

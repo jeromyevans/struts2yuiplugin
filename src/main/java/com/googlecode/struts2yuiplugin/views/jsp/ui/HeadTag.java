@@ -12,7 +12,8 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class HeadTag extends AbstractUITag {
     private String datepicker;
     private String languages;
-    
+    private String autocompleter;
+
     @Override
     public Component getBean(ValueStack stack, HttpServletRequest req,
         HttpServletResponse res) {
@@ -25,8 +26,8 @@ public class HeadTag extends AbstractUITag {
 
         Head head = (Head) this.component;
         head.setDatepicker(this.datepicker);
-        head.setLanguages(languages);
-        
+        head.setLanguages(this.languages);
+        head.setAutocompleter(this.autocompleter);
     }
 
     public void setDatepicker(String datepicker) {
@@ -35,5 +36,9 @@ public class HeadTag extends AbstractUITag {
 
     public void setLanguages(String languages) {
         this.languages = languages;
+    }
+
+    public void setAutocompleter(String autocompleter) {
+        this.autocompleter = autocompleter;
     }
 }
