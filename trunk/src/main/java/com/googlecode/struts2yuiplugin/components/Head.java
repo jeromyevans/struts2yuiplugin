@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class Head extends UIBean {
     public static final String TEMPLATE = "yuihead";
     private String datepicker;
+    private String autocompleter;
     private String languages;
 
     public Head(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
@@ -31,15 +32,19 @@ public class Head extends UIBean {
         if (this.datepicker != null)
             this.parameters.put("datepicker", this.findValue(this.datepicker,
                 Boolean.class));
-        if (languages != null) {
-            String evalLanguages = findString(languages);
+        if (this.autocompleter != null)
+            this.parameters.put("autocompleter", this.findValue(this.autocompleter,
+                Boolean.class));
+        if (this.languages != null) {
+            String evalLanguages = this.findString(this.languages);
             if (evalLanguages != null)
-                addParameter("languages", evalLanguages.split(","));
+                this.addParameter("languages", evalLanguages.split(","));
         } else {
             ActionContext context = ActionContext.getContext();
             HttpServletRequest request = (HttpServletRequest) context
                 .get(StrutsStatics.HTTP_REQUEST);
-            addParameter("languages", new String[] { request.getLocale().getLanguage() });
+            this.addParameter("languages", new String[] { request.getLocale()
+                .getLanguage() });
         }
     }
 
@@ -56,5 +61,10 @@ public class Head extends UIBean {
     @StrutsTagAttribute(description = "Comma separated list of language names(2 lower case letters). Use to load resources. For example: de,ja")
     public void setLanguages(String languages) {
         this.languages = languages;
+    }
+
+    @StrutsTagAttribute(description = "Include javascript files to use YUI Autocomplete", type = "Boolean", defaultValue = "false")
+    public void setAutocompleter(String autocompleter) {
+        this.autocompleter = autocompleter;
     }
 }
