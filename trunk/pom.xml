@@ -5,7 +5,7 @@
     <groupId>com.googlecode.struts2yuiplugin</groupId>
     <artifactId>struts2yuiplugin</artifactId>
     <packaging>jar</packaging>
-    <version>0.1-ALPHA-4</version>
+    <version>0.1-ALPHA-6-SNAPSHOT</version>
     <name>struts2yuiplugin</name>
     <url>http://code.google.com/p/struts2yuiplugin/</url>
 
@@ -78,6 +78,11 @@
             <artifactId>velocity</artifactId>
             <version>1.4</version>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+          <version>1.0.4</version>
         </dependency>
     </dependencies>
 </project>
