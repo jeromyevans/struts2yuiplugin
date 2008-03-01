@@ -4,15 +4,15 @@ Please do not edit it directly.
 -->
 <html>
     <head>
-		<title>autocompleter</title>
+		<title>a</title>
 	</head>
 
 	<body>
-		<h1>Tag Name: autocompleter</h1>
+		<h1>Tag Name: a</h1>
 		<h2>Description</h2>
 		<p>
 		<!-- START SNIPPET: tagdescription -->
-		Renders a combobox with autocomplete and AJAX capabilities
+		Renders an anchor tag with an onclick listener that performs an XHR
 		<!-- END SNIPPET: tagdescription -->
 		</p>
 
@@ -36,36 +36,20 @@ Please do not edit it directly.
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">autoComplete</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Whether autocompleter should make suggestion on the textbox</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">autoHighlight</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Autohighlight first element on the list</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">containerCssClass</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">ysearchcontainer</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">CSS class to be applied to the dropdown container</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">containerCssStyle</td>
+					<td align="left" valign="top">callback</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">CSS style to be applied to the dropdown container</td>
+					<td align="left" valign="top">An alternative javascript callback for the YUI Connection Manager's response</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">clickListener</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">An alternative listener for the click event</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -84,22 +68,6 @@ Please do not edit it directly.
 					<td align="left" valign="top">The css style definitions for element to use</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">dataFieldName</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">result</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Name of the field in the returned JSON object that contains the data array</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">delay</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">0.5</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Delay in seconds before making query to load options</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">disabled</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
@@ -108,28 +76,28 @@ Please do not edit it directly.
 					<td align="left" valign="top">Set the html disabled attribute on rendered html element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">forceValidOption</td>
+					<td align="left" valign="top">formId</td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Force selection to be one of the options</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The ID of the form to include in the request</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">href</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">The URL used to load the options</td>
+					<td align="left" valign="top">The URL to make the request to if other than the form's action</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">id</td>
 					<td align="left" valign="top"><strong>true</strong></td>
 					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Used as HTML id attribute</td>
+					<td align="left" valign="top">Mandatory id attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">javascriptTooltip</td>
@@ -146,14 +114,6 @@ Please do not edit it directly.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the key (name, value, label) for this particular component</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">keyName</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Name of the field to which the selected key will be assigned</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">label</td>
@@ -180,20 +140,28 @@ Please do not edit it directly.
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">loadMinimumCount</td>
+					<td align="left" valign="top">method</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">1</td>
+					<td align="left" valign="top">GET</td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Integer</td>
-					<td align="left" valign="top">Minimum number of characters that will force the options to be loaded</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The HTTP method to use</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">name</td>
-					<td align="left" valign="top"><strong>true</strong></td>
+					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Name of the field that will cotainf the date value</td>
+					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">noscript</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">If true the tag will not include any associated javascript</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onblur</td>
@@ -201,7 +169,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top"> Set the html onblur attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onchange</td>
@@ -209,7 +177,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onchange attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onclick</td>
@@ -217,7 +185,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onclick attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">ondblclick</td>
@@ -225,7 +193,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html ondblclick attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onfocus</td>
@@ -233,7 +201,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onfocus attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onkeydown</td>
@@ -241,7 +209,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onkeydown attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onkeypress</td>
@@ -249,7 +217,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onkeypress attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onkeyup</td>
@@ -257,7 +225,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onkeyup attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onmousedown</td>
@@ -265,7 +233,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onmousedown attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onmousemove</td>
@@ -273,7 +241,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onmousemove attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onmouseout</td>
@@ -281,7 +249,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onmouseout attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onmouseover</td>
@@ -289,7 +257,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onmouseover attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onmouseup</td>
@@ -297,7 +265,7 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onmouseup attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">onselect</td>
@@ -305,7 +273,15 @@ Please do not edit it directly.
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Set the html onselect attribute on rendered html element</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">openTemplate</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">required</td>
@@ -324,20 +300,20 @@ Please do not edit it directly.
 					<td align="left" valign="top">Define required position of required form element (left|right)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">resultsLimit</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">10</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Limit how many results are shown as autocompletion options</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">tabindex</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html tabindex attribute on rendered html element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">target</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The ID of the target div to render the result</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">template</td>
@@ -412,20 +388,20 @@ Please do not edit it directly.
 					<td align="left" valign="top">Icon path used for image that will have the tooltip</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">useShadow</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">The dropdown will have a shadow, the CSS class for the shadow is 'yui-ac-shadow'</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">value</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Preset the value of input element.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">widget</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A unique javascript name to assign to this widget.  Use to specify a namespace.</td>
 				</tr>
 		</table>
 		<!-- END SNIPPET: tagattributes -->
