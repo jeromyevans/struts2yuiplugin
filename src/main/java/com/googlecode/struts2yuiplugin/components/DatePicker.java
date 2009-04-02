@@ -19,6 +19,7 @@ import org.apache.struts2.views.annotations.StrutsTag;
 import org.apache.struts2.views.annotations.StrutsTagAttribute;
 import org.apache.struts2.views.annotations.StrutsTagSkipInheritance;
 
+import com.googlecode.struts2yuiplugin.tools.YUITools;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.util.ValueStack;
 
@@ -50,6 +51,8 @@ public class DatePicker extends UIBean {
     @Override
     public void evaluateParams() {
         super.evaluateParams();
+        
+        
 
         if (this.value != null)
             this.addParameter("value", this.format(this.findValue(this.value)));
@@ -153,13 +156,13 @@ public class DatePicker extends UIBean {
     @Override
     @StrutsTagAttribute(description = "Used as HTML id attribute", required = true)
     public void setId(String id) {
-        super.setId(id);
+        super.setId(YUITools.sanitizeForJavascript(id));
     }
 
     @Override
     @StrutsTagAttribute(description = "Name of the field that will cotainf the date value", required = true)
     public void setName(String name) {
-        super.setName(name);
+        super.setName(YUITools.sanitizeForJavascript(name));
     }
 
     @Override
