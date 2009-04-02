@@ -10,9 +10,11 @@ import com.googlecode.struts2yuiplugin.components.Head;
 import com.opensymphony.xwork2.util.ValueStack;
 
 public class HeadTag extends AbstractUITag {
-    private String datepicker;
+    
+	private String datepicker;
     private String languages;
     private String autocompleter;
+    private String tabview;
 
     @Override
     public Component getBean(ValueStack stack, HttpServletRequest req,
@@ -28,6 +30,7 @@ public class HeadTag extends AbstractUITag {
         head.setDatepicker(this.datepicker);
         head.setLanguages(this.languages);
         head.setAutocompleter(this.autocompleter);
+        head.setTabview(this.tabview);
     }
 
     public void setDatepicker(String datepicker) {
@@ -40,5 +43,9 @@ public class HeadTag extends AbstractUITag {
 
     public void setAutocompleter(String autocompleter) {
         this.autocompleter = autocompleter;
+    }
+    
+    public void setTabview(String tabview) {
+    	this.tabview = tabview;
     }
 }
