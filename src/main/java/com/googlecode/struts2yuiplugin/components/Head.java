@@ -19,6 +19,7 @@ public class Head extends UIBean {
     private String datepicker;
     private String autocompleter;
     private String languages;
+    private String tabview;
 
     public Head(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
@@ -29,12 +30,18 @@ public class Head extends UIBean {
     public void evaluateParams() {
         super.evaluateParams();
 
-        if (this.datepicker != null)
+        if (this.datepicker != null) {
             this.parameters.put("datepicker", this.findValue(this.datepicker,
                 Boolean.class));
-        if (this.autocompleter != null)
+        }
+        if (this.autocompleter != null) {
             this.parameters.put("autocompleter", this.findValue(this.autocompleter,
                 Boolean.class));
+        }
+        if (this.tabview != null){
+        	 this.parameters.put("tabview", this.findValue(this.tabview,
+                     Boolean.class));
+        }
         if (this.languages != null) {
             String evalLanguages = this.findString(this.languages);
             if (evalLanguages != null)
@@ -66,5 +73,10 @@ public class Head extends UIBean {
     @StrutsTagAttribute(description = "Include javascript files to use YUI Autocomplete", type = "Boolean", defaultValue = "false")
     public void setAutocompleter(String autocompleter) {
         this.autocompleter = autocompleter;
+    }
+    
+    @StrutsTagAttribute(description = "Include javascript files to use YUI TabView", type = "Boolean", defaultValue = "false")
+    public void setTabview(String tabview){
+    	this.tabview = tabview;
     }
 }
