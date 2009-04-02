@@ -4,15 +4,15 @@ Please do not edit it directly.
 -->
 <html>
     <head>
-		<title>datepicker</title>
+		<title>tabview</title>
 	</head>
 
 	<body>
-		<h1>Tag Name: datepicker</h1>
+		<h1>Tag Name: tabview</h1>
 		<h2>Description</h2>
 		<p>
 		<!-- START SNIPPET: tagdescription -->
-		Renders YUI datepicker
+		Renders a YUI TabView
 		<!-- END SNIPPET: tagdescription -->
 		</p>
 
@@ -40,14 +40,6 @@ Please do not edit it directly.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Set the html accesskey attribute on rendered html element</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">autoClose</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">true</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Boolean</td>
-					<td align="left" valign="top">Hide datepicker when a date is selected. Applies only when 'mode' is 'input' or 'label'</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">cssClass</td>
@@ -90,44 +82,12 @@ Please do not edit it directly.
 					<td align="left" valign="top">Set the html disabled attribute on rendered html element</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">endDate</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Date</td>
-					<td align="left" valign="top">Last available date in the calendar set</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">formatFunction</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Function used to format the selected value. The value returned by this function will be displayed on the input field. When the page loads an String will be passed to this function with the value specified on the 'value' attribute.When the user selects a value using the datepicker a JavaScript object of type Date will be passed. Applies only when 'mode' is 'input' or 'label'</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">iconCssClass</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Css class of icon used for the dropdown image. Applies only when 'mode' is 'input' or 'label'</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">iconPath</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">URL of icon used for the dropdown image. Applies only when 'mode' is 'input' or 'label'</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">id</td>
-					<td align="left" valign="top"><strong>true</strong></td>
-					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">true</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Used as HTML id attribute</td>
+					<td align="left" valign="top">HTML id attribute</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">javascriptTooltip</td>
@@ -170,28 +130,140 @@ Please do not edit it directly.
 					<td align="left" valign="top">Define label position of form element (top/left)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">language</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top"></td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Language name(2 lowercase characters) to be used on the datepicker. This language must also be specified on the attribute 'languages' in the head tag.</td>
-				</tr>
-				<tr>
-					<td align="left" valign="top">mode</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">input</td>
-					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Sets how the datepicker is to be rendered, should be one of 'input', 'static', 'label'</td>
-				</tr>
-				<tr>
 					<td align="left" valign="top">name</td>
-					<td align="left" valign="top"><strong>true</strong></td>
+					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
-					<td align="left" valign="top">Name of the field that will cotainf the date value</td>
+					<td align="left" valign="top">The name to set for element</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">noscript</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">If true the tag will not include any associated javascript</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onblur</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onchange</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onclick</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">ondblclick</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onfocus</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onkeydown</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onkeypress</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onkeyup</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onmousedown</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onmousemove</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onmouseout</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onmouseover</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onmouseup</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">onselect</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Not supported - use the YUI event utility</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">openTemplate</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">Set template to use for opening the rendered html.</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">required</td>
@@ -210,12 +282,12 @@ Please do not edit it directly.
 					<td align="left" valign="top">Define required position of required form element (left|right)</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top">startDate</td>
+					<td align="left" valign="top">selectedTab</td>
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top"></td>
 					<td align="left" valign="top">false</td>
-					<td align="left" valign="top">Date</td>
-					<td align="left" valign="top">First available date in the calendar set</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">The ID of a tab to make initially selected</td>
 				</tr>
 				<tr>
 					<td align="left" valign="top">tabindex</td>
@@ -304,6 +376,14 @@ Please do not edit it directly.
 					<td align="left" valign="top">false</td>
 					<td align="left" valign="top">String</td>
 					<td align="left" valign="top">Preset the value of input element.</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top">widget</td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top"></td>
+					<td align="left" valign="top">false</td>
+					<td align="left" valign="top">String</td>
+					<td align="left" valign="top">A unique javascript name to assign to this widget.  Use to specify a namespace.</td>
 				</tr>
 		</table>
 		<!-- END SNIPPET: tagattributes -->
