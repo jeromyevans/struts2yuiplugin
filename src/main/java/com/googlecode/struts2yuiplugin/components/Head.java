@@ -16,10 +16,15 @@ import com.opensymphony.xwork2.util.ValueStack;
 @StrutsTag(name = "head", tldTagClass = "com.googlecode.struts2yuiplugin.views.jsp.ui.HeadTag", description = "Renders required YUI files")
 public class Head extends UIBean {
     public static final String TEMPLATE = "yuihead";
+    
     private String datepicker;
     private String autocompleter;
     private String languages;
     private String tabview;
+    private String cssreset;
+    private String cssfonts;
+    private String cssgrids;
+    private String cssbase;
 
     public Head(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
@@ -29,18 +34,27 @@ public class Head extends UIBean {
     @SuppressWarnings("unchecked")
     public void evaluateParams() {
         super.evaluateParams();
-
+        
         if (this.datepicker != null) {
-            this.parameters.put("datepicker", this.findValue(this.datepicker,
-                Boolean.class));
+            this.parameters.put("datepicker", this.findValue(this.datepicker, Boolean.class));
         }
         if (this.autocompleter != null) {
-            this.parameters.put("autocompleter", this.findValue(this.autocompleter,
-                Boolean.class));
+            this.parameters.put("autocompleter", this.findValue(this.autocompleter, Boolean.class));
         }
         if (this.tabview != null){
-        	 this.parameters.put("tabview", this.findValue(this.tabview,
-                     Boolean.class));
+        	 this.parameters.put("tabview", this.findValue(this.tabview, Boolean.class));
+        }
+        if (this.cssreset != null) {
+        	this.parameters.put("cssreset", this.findValue(this.cssreset, Boolean.class));
+        }
+        if(this.cssfonts != null) {
+        	this.parameters.put("cssfonts", this.findValue(this.cssfonts, Boolean.class));
+        }
+        if(this.cssgrids != null) {
+        	this.parameters.put("cssgrids", this.findValue(this.cssgrids, Boolean.class));
+        }
+        if(this.cssbase != null){
+        	this.parameters.put("cssbase", this.findValue(this.cssbase, Boolean.class));
         }
         if (this.languages != null) {
             String evalLanguages = this.findString(this.languages);
@@ -79,4 +93,28 @@ public class Head extends UIBean {
     public void setTabview(String tabview){
     	this.tabview = tabview;
     }
+
+    @StrutsTagAttribute(description = "Include YUI Reset CSS file", type = "Boolean", defaultValue = "false")
+	public void setCssreset(String cssreset) {
+		this.cssreset = cssreset;
+	}
+
+    @StrutsTagAttribute(description = "Include YUI Fonts CSS file", type = "Boolean", defaultValue = "false")
+	public void setCssfonts(String cssfonts) {
+		this.cssfonts = cssfonts;
+	}
+
+    @StrutsTagAttribute(description = "Include YUI Grids CSS file", type = "Boolean", defaultValue = "false")
+	public void setCssgrids(String cssgrids) {
+		this.cssgrids = cssgrids;
+	}
+
+    @StrutsTagAttribute(description = "Include YUI Base CSS file", type = "Boolean", defaultValue = "false")
+	public void setCssbase(String cssbase) {
+		this.cssbase = cssbase;
+	}
+    
+    
+    
+    
 }
