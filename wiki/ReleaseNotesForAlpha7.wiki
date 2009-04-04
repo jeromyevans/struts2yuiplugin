@@ -1,0 +1,5 @@
+ * Improved documentation at [http://cwiki.apache.org/confluence/display/S2PLUGINS/YUI+Plugin]
+ * Added basic YUI Tabview tag
+ * Added support for YUI CSS reset, fonts, grids, and base as attributes to the head tag.
+ * Upgraded internal YUI libraries to YUI version 2.7.0
+ * Update for compatibility with later version Struts 2.1.6
