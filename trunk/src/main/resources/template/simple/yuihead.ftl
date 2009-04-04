@@ -1,4 +1,17 @@
-<script type="text/javascript" src="${base}/struts/yahoo-dom-event/yahoo-dom-event.js"></script>
+<#if parameters.cssreset!false>
+	<link rel="stylesheet" type="text/css" href="${base}/struts/reset/reset-min.css"> 
+</#if>
+<#if parameters.cssfonts!false>
+	<link rel="stylesheet" type="text/css" href="${base}/struts/fonts/fonts-min.css"> 
+</#if>
+<#if parameters.cssgrids!false>
+	<link rel="stylesheet" type="text/css" href="${base}/struts/grids/grids-min.css"> 
+</#if>
+<#if parameters.cssbase!false>
+	<link rel="stylesheet" type="text/css" href="${base}/struts/base/base-min.css"> 
+</#if>
+
+	<script type="text/javascript" src="${base}/struts/yahoo-dom-event/yahoo-dom-event.js"></script>
 
 <#if parameters.datepicker!false>
 	<link rel="stylesheet" type="text/css" href="${base}/struts/calendar/assets/skins/sam/calendar.css">
@@ -8,7 +21,7 @@
 	<#if parameters.languages?exists>
 	<#list parameters.languages as language>
 	  <#if language != "en">
-	    <script type="text/javascript" src="${base}/struts/i18n/${language}.js"></script>
+	  	<script type="text/javascript" src="${base}/struts/i18n/${language}.js"></script>
 	  </#if>  
 	</#list>    
 	</#if>
