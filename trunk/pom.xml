@@ -56,6 +56,15 @@
     </build>
 
     <dependencies>
+
+        <dependency>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+          <version>1.0.4</version>
+        </dependency>        
+        
+        <!-- Core -->
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>
@@ -63,25 +72,31 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>velocity</groupId>
-            <artifactId>velocity</artifactId>
-            <version>1.4</version>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts-annotations</artifactId>
+            <version>1.0.4</version>
             <optional>true</optional>
         </dependency>
+
+        <!-- JSP API -->
+
+        <!-- struts-annotations must be in compile scope for maven-apt-plugin to
+             function correctly. Marking it optional to exclude it from transitive dependency resolution -->
         <dependency>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-          <version>1.0.4</version>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.1.8.1</version>
+            <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-        	<groupId>org.apache.struts</groupId>
-        	<artifactId>struts2-core</artifactId>
-        	<version>2.1.6</version>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
+            <scope>compile</scope>
         </dependency>
-        <dependency>
-        	<groupId>org.apache.struts</groupId>
-        	<artifactId>struts-annotations</artifactId>
-        	<version>1.0.4</version>
-        </dependency>
+        
+        
+        
     </dependencies>
 </project>
