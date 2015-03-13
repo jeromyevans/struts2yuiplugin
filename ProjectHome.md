@@ -1,0 +1,1 @@
+See [Struts 2 Plugin Registry](http://cwiki.apache.org/confluence/display/S2PLUGINS/YUI+Plugin) for documentation and examples
